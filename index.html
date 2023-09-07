@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stage One</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+        <div class="navbar">
+            <p>Personal Data</p>
+        </div>
+        
+        <img
+        class="disImg"
+        src="https://ca.slack-edge.com/T05FFAA91JP-U05QZEL958X-59b35ff79be4-512"
+        alt="Emma Excel"
+        data-testid="slackDisplayImage"
+        />
+        <p class="username" data-testid="slackUserName"> Emma-Okerhe Excel</p>
+        <p data-testid="myTrack" class="track">Frontend</p>
+
+        <p data-testid="currentUTCTime" class="time">12:00 PM UTC</p>
+      <p data-testid="currentDayOfTheWeek" class="day">Monday</p>
+
+
+
+      <a href="https://github.com/EmmaExcel" data-testid="githubURL">GitHub Repository Here</a>
+    </div>
+    <script>
+     
+      document.addEventListener("DOMContentLoaded", function () {
+        const currentDayElement = document.querySelector(
+          '[data-testid="currentDayOfTheWeek"]'
+        );
+        const currentUTCTimeElement = document.querySelector(
+          '[data-testid="currentUTCTime"]'
+        );
+
+        const currentDate = new Date();
+
+        const daysOfWeek = [
+          "Sunday",
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+        ];
+
+        currentDayElement.textContent = daysOfWeek[currentDate.getUTCDay()];
+        currentUTCTimeElement.textContent =
+          currentDate.toUTCString().slice(17, 25) + " UTC";
+      });
+    </script>
+  </body>
+</html>
